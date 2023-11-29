@@ -1,0 +1,99 @@
+/* ##############################
+# layout - footer
+################################*/
+.footer {
+  background-color: #001331;
+  color: #fff;
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    max-width: $l-container;
+    margin: 0 auto;
+    padding: 126px 20px 30px;
+  }
+  .f-info {
+    gap: 10px;
+    .info {
+      &-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      &-tit {
+        font-size: 12px;
+        font-weight: inherit;
+      }
+      &-desc {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: inherit;
+        gap: 10px;
+        &::before {
+          content: "";
+          display: block;
+          background-color: #fff;
+          border-radius: 2px;
+          width: 1px;
+          height: 12px;
+        }
+      }
+    }
+  }
+  .f-group {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+  .f-logo {
+    display: block;
+    position: absolute;
+    right: 30px;
+    background: url("../images/logo_footer.png") no-repeat 50% 50% / cover;
+    width: 190px;
+    height: 31px;
+    margin-bottom: auto;
+    margin-left: auto;
+    font-size: 0;
+    color: transparent;
+  }
+  .f-copy {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    font-size: 12px;
+  }
+}
+@include mobile {
+  .footer {
+    &-container {
+      max-width: 100vw;
+      padding: 36px 20px 20px;
+    }
+    .f-info{
+      .info-group{
+        gap: 4px;
+      }
+      .info-tit{
+        font-size: 10px;
+      }
+      .info-desc{
+        gap: 8px;
+        font-size: 10px;
+      }
+    }
+    .f-logo{
+      top: 36px;
+      right: 20px;
+      width: 83px;
+      height: 13px;
+    }
+    .f-copy{
+      right: 20px;
+      bottom: 20px;
+      font-size: 10px;
+    }
+  }
+}

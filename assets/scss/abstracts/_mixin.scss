@@ -1,0 +1,51 @@
+//************************************
+//# text eillipse
+//************************************
+@mixin ellipsis($line-cnt: 1) {
+  @if ($line-cnt == 1) {
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $line-cnt; /* 라인수 */
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+}
+@mixin scroll() {
+  /* Scrollbar */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #ededed;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+    border-radius: 8px;
+  }
+}
+$tablet: 743px;
+$desktop: 1440px;
+// @mixin mobile {
+//   @media (max-width: ($tablet - 1)) {
+//     @content;
+//   }
+// }
+@mixin mobile {
+  @media (max-width: ($desktop - 1)) {
+    @content;
+  }
+}
+@mixin tablet-only {
+  @media (min-width: $tablet) and (max-width: ($desktop - 1)) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}

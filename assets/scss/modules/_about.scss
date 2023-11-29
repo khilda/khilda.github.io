@@ -1,0 +1,157 @@
+/* ##############################
+# section - about
+################################*/
+.about-team {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 67px;
+  margin-top: 96px;
+  .team {
+    &-item {
+      background-color: #f7f7f7;
+      border-radius: 4px 40px 4px 40px;
+      width: 300px;
+      height: 350px;
+      padding: 40px;
+      color: #616161;
+      box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.1);
+      &:nth-child(even) {
+        margin-top: 50px;
+      }
+    }
+    &-icon {
+      width: 120px;
+      height: 120px;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+    &-title {
+      margin-top: 65px;
+      font-size: 24px;
+      font-weight: 700;
+      &::after {
+        content: "";
+        display: block;
+        background: linear-gradient(
+          90deg,
+          #155fea 52.22%,
+          rgba(21, 95, 234, 0) 100%
+        );
+        width: 200px;
+        height: 2px;
+        margin-top: 10px;
+      }
+    }
+    &-desc {
+      margin-top: 10px;
+    }
+  }
+}
+.about-address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #9e9e9e;
+  border-bottom: 1px solid #9e9e9e;
+  margin-top: 100px;
+  padding: 20px 0;
+  text-align: center;
+  .add {
+    &-item {
+      flex: 1;
+      & + .add-item {
+        border-left: 1px solid #9e9e9e;
+      }
+    }
+    &-title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    &-desc {
+      position: relative;
+      display: inline-block;
+      margin-top: 20px;
+      &::after {
+        content: "";
+        display: block;
+        background: rgba(21, 95, 234, 0.1);
+        height: 11px;
+        transform: translate(-10px, -8px);
+      }
+    }
+  }
+}
+//************************************
+//# responsive
+//************************************
+@include desktop{
+  .about .sec-header{
+    text-align: center;
+  }
+}
+@include mobile {
+  .about-team {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 37px;
+    margin-top: 35px;
+    .team {
+      &-item {
+        border-radius: 2px 20px 2px 20px;
+        width: 132px;
+        height: 155px;
+        padding: 10px;
+        box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.1);
+        &:nth-child(even) {
+          margin-top: 20px;
+        }
+      }
+      &-icon {
+        width: 60px;
+        height: 60px;
+      }
+      &-title {
+        margin-top: 27px;
+        font-size: 14px;
+        &::after {
+          width: 100px;
+          height: 1px;
+          margin-top: 4px;
+        }
+      }
+      &-desc {
+        margin-top: 4px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .about-address {
+    flex-direction: column;
+    border-top: 3px solid #eeeeee;
+    border-bottom: 3px solid #eeeeee;
+    margin-top: 30px;
+    padding: 0 14px;
+    .add {
+      &-item {
+        width: 100%;
+        padding: 12px 0;
+        & + .add-item {
+          border-top: 1px solid #eeeeee;
+          border-left: 0 none;
+        }
+      }
+      &-title {
+        font-size: 14px;
+      }
+      &-desc {
+        height: 20px;
+        margin-top: 10px;
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+/* ##############################
+# section - visual
+################################*/
+.visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 60px;
+  color: #353535;
+  &-logo {
+    display: block;
+    position: absolute;
+    top: 44px;
+    right: 60px;
+    background: url("../images/logo_visual.png") no-repeat 50% 50% / cover;
+    width: 305px;
+    height: 50px;
+    font-size: 0;
+    color: transparent;
+  }
+  &-title {
+    font-size: 108px;
+    font-weight: 700;
+  }
+  &-sub {
+    margin-top: 80px;
+    font-size: 32px;
+  }
+  &-desc {
+    margin-top: 40px;
+  }
+}
+
+@include mobile{
+  .visual {
+    text-align: center;
+    &-logo {
+      display: none;
+    }
+    &-title {
+      font-size: 44px;
+    }
+    &-sub {
+      margin-top: 94px;
+      font-size: 28px;
+    }
+    &-desc {
+      margin-top: 10px;
+      line-height: 1.6;
+      font-size: 12px;
+    }
+  }
+  
+
+}
