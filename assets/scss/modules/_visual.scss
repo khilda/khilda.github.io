@@ -31,10 +31,12 @@
     color: transparent;
   }
   &-title {
+    font-family: "Bonanova";
     font-size: 108px;
     font-weight: 700;
   }
   &-sub {
+    font-family: "Bonanova";
     margin-top: 80px;
     font-size: 32px;
   }
@@ -60,11 +62,9 @@
       display: none;
     }
     &-title {
-      font-family: 'Bonanova';
       font-size: 44px;
     }
     &-sub {
-      font-family: 'Bonanova';
       margin-top: 94px;
       font-size: 28px;
     }

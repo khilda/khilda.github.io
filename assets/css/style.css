@@ -182,7 +182,7 @@ body {
   font-family: "NotoSansKR", "Malgun Gothic";
   font-weight: 400;
   font-size: 16px;
-  color: var(--color, #000);
+  color: var(--color, #353535);
   line-height: 1.25;
 }
 
@@ -284,7 +284,9 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1400px;
   height: 60px;
+  margin: 0 auto;
   padding: 14px 20px;
 }
 .header .h-logo {
@@ -525,6 +527,7 @@ textarea {
   height: 100vh;
   margin: 0 auto;
   padding-top: 97px;
+  overflow: hidden;
 }
 
 .l-container {
@@ -694,10 +697,12 @@ textarea {
   color: transparent;
 }
 .visual-title {
+  font-family: "Bonanova";
   font-size: 108px;
   font-weight: 700;
 }
 .visual-sub {
+  font-family: "Bonanova";
   margin-top: 80px;
   font-size: 32px;
 }
@@ -723,11 +728,9 @@ textarea {
     display: none;
   }
   .visual-title {
-    font-family: "Bonanova";
     font-size: 44px;
   }
   .visual-sub {
-    font-family: "Bonanova";
     margin-top: 94px;
     font-size: 28px;
   }
@@ -763,9 +766,9 @@ textarea {
   width: auto;
   height: 35px;
   padding: 3px 15px;
-  line-height: 1;
   font-size: 20px;
   color: #fff;
+  cursor: pointer;
 }
 .business-nav .b-nav.is-active {
   background-color: #2196f3;
@@ -1365,6 +1368,7 @@ textarea {
   font-size: 64px;
   font-weight: 700;
   color: #e7e7e7;
+  cursor: pointer;
 }
 .history-nav .h-nav.is-active {
   font-size: 80px;
