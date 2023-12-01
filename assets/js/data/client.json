@@ -1,0 +1,67 @@
+{
+  "tabClient": [
+    { "img": "img_client_01.png", "desc": "AIA생명" },
+    { "img": "img_client_02.png", "desc": "BMW캐피탈" },
+    { "img": "img_client_03.png", "desc": "다올저축은행" },
+    { "img": "img_client_04.png", "desc": "LG유플러스" },
+    { "img": "img_client_05.png", "desc": "SK렌터카" },
+    { "img": "img_client_06.png", "desc": "S-Oil" },
+    { "img": "img_client_07.png", "desc": "the K" },
+    { "img": "img_client_08.png", "desc": "KB국민은행" },
+    { "img": "img_client_09.png", "desc": "IBK기업은행" },
+    { "img": "img_client_10.png", "desc": "미톡스" },
+    {
+      "img": "img_client_11.png",
+      "desc": "동원제일저축은행"
+    },
+    { "img": "img_client_12.png", "desc": "라이나생명" },
+    { "img": "img_client_13.png", "desc": "롯데백화점" },
+    { "img": "img_client_14.png", "desc": "롯데홈쇼핑" },
+    { "img": "img_client_15.png", "desc": "모아저축은행" },
+    { "img": "img_client_16.png", "desc": "블루원리조트" },
+    { "img": "img_client_17.png", "desc": "삼성카드" },
+    { "img": "img_client_18.png", "desc": "샘터" },
+    { "img": "img_client_19.png", "desc": "세람저축은행" },
+    { "img": "img_client_20.png", "desc": "신한은행" },
+    { "img": "img_client_21.png", "desc": "아모레퍼시픽" },
+    { "img": "img_client_22.png", "desc": "에뛰드" },
+    { "img": "img_client_23.png", "desc": "에스쁘아" },
+    { "img": "img_client_24.png", "desc": "엔투" },
+    { "img": "img_client_25.png", "desc": "웰컴저축은행" },
+    { "img": "img_client_26.png", "desc": "이니스프리" },
+    { "img": "img_client_27.png", "desc": "인천교통공사" },
+    { "img": "img_client_28.png", "desc": "SC제일은행" },
+    { "img": "img_client_29.png", "desc": "커리어넷" },
+    { "img": "img_client_30.png", "desc": "KEB하나은행" },
+    { "img": "img_client_31.png", "desc": "한국도로" },
+    { "img": "img_client_32.png", "desc": "한국투자증권" },
+    { "img": "img_client_33.png", "desc": "한화저축은행" },
+    { "img": "img_client_34.png", "desc": "홈플러스" }
+  ],
+  "tabClientMain": [
+    {
+      "img": "img_client_main_01.png",
+      "desc": "SK 주식회사"
+    },
+    { "img": "img_client_main_02.png", "desc": "KT alpha" },
+    { "img": "img_client_main_03.png", "desc": "GE 초음파" },
+    { "img": "img_client_main_04.png", "desc": "신세계" },
+    {
+      "img": "img_client_main_05.png",
+      "desc": "한솔 지류유통"
+    }
+  ],
+  "tabClientPartner": [
+    {
+      "img": "img_client_main_01.png",
+      "desc": "SK 주식회사"
+    },
+    { "img": "img_client_main_02.png", "desc": "KT alpha" },
+    { "img": "img_client_main_03.png", "desc": "GE 초음파" },
+    { "img": "img_client_main_04.png", "desc": "신세계" },
+    {
+      "img": "img_client_main_05.png",
+      "desc": "한솔 지류유통"
+    }
+  ]
+}

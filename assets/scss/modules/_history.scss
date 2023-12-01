@@ -7,65 +7,69 @@
     content: "";
   }
 }
+.history-nav-container {
+  width: 100%;
+  max-width: $l-container;
+  padding: 0 20px;
+  margin: 80px auto 0;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: linear-gradient(
+      90deg,
+      #155fea -2.25%,
+      rgba(21, 95, 234, 0) 100%
+    );
+  }
+}
+
+.history-nav {
+  padding: 0 100px;
+  overflow: visible;
+  .h-nav {
+    align-self: center;
+    width: auto;
+    font-size: 64px;
+    font-weight: 700;
+    color: #e7e7e7;
+    &.is-active {
+      font-size: 80px;
+      color: #616161;
+    }
+  }
+}
+
+.history-container {
+  width: 100%;
+  max-width: $l-container;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 .history {
   &-list {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
-    gap: 0 40px;
-    width: 1130px;
+    width: 350px;
     height: 442px;
-    margin: 0 auto;
+    margin: 80px 0 0;
   }
   &-item {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #9e9e9e;
-    width: 350px;
+    width: 100%;
     height: 63px;
-    &:nth-child(7n + 1) {
+    &:first-child {
       border-top: 1px solid #9e9e9e;
     }
   }
 }
-.history-tab {
-  margin-top: 80px;
-  .tab {
-    &-header {
-      gap: 100px;
-      padding: 0 100px;
-    }
-    &-btn {
-      font-size: 64px;
-      font-weight: 700;
-      color: #e7e7e7;
-      &.is-active {
-        font-size: 80px;
-        color: #616161;
-      }
-    }
-    &-container {
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        height: 12px;
-        background: linear-gradient(
-          90deg,
-          #155fea -2.25%,
-          rgba(21, 95, 234, 0) 100%
-        );
-      }
-    }
-    &-content {
-      padding: 50px 0;
-    }
-  }
-}
-
 //************************************
 //# Mobile
 //************************************
@@ -77,43 +81,34 @@
   }
   .history {
     &-list {
-      gap: 0 30px;
-      width: 100%;
-      height: 360px;
+      width: 274px;
+      height: 295px;
     }
     &-item {
-      width: 274px;
-      height: 37px;
+      height: 42px;
       font-size: 12px;
-      &:nth-child(7n + 1) {
-        border-top: 0 none;
-      }
-      &:nth-child(9n + 1) {
-        border-top: 1px solid #9e9e9e;
+    }
+  }
+  .history-nav-container {
+    margin-top: 32px;
+  }
+  .history-container {
+    padding: 0;
+  }
+  .history-nav {
+    padding: 0;
+    &::after {
+      height: 8px;
+    }
+    .h-nav {
+      height: 54px;
+      font-size: 32px;
+      &.is-active {
+        font-size: 32px;
       }
     }
   }
-  .history-tab {
-    margin-top: 32px;
-    .tab {
-      &-header {
-        gap: 40px;
-        height: 54px;
-      }
-      &-btn {
-        font-size: 32px;
-        &.is-active {
-          font-size: 32px;
-        }
-      }
-      &-container {
-        &::before {
-          height: 8px;
-        }
-      }
-      &-content {
-        padding: 40px 0;
-      }
-    }
+  .history-list {
+    margin-top: 40px;
   }
 }

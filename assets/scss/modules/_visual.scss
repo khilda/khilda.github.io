@@ -2,11 +2,23 @@
 # section - visual
 ################################*/
 .visual {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 60px;
   color: #353535;
+  &-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #69c1ff;
+  }
   &-logo {
     display: block;
     position: absolute;
@@ -29,18 +41,30 @@
   &-desc {
     margin-top: 40px;
   }
+  .icon-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url("./../images/icon_scroll_down.png") no-repeat 50% 0%;
+    padding-top: 66px;
+    font-size: 12px;
+    text-align: center;
+  }
 }
 
-@include mobile{
+@include mobile {
   .visual {
     text-align: center;
     &-logo {
       display: none;
     }
     &-title {
+      font-family: 'Bonanova';
       font-size: 44px;
     }
     &-sub {
+      font-family: 'Bonanova';
       margin-top: 94px;
       font-size: 28px;
     }
@@ -49,7 +73,10 @@
       line-height: 1.6;
       font-size: 12px;
     }
+    .icon-scroll {
+      bottom: 70px;
+      background-image: url("./../images/icon_scroll_down_m.png");
+      padding-top: 30px;
+    }
   }
-  
-
 }
