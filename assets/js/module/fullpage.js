@@ -39,7 +39,7 @@ export class PageAnimation {
     if (e.type === "touchend") {
       this.touchEnd = e.changedTouches[0]?.clientY ?? 0;
       this.wheelValue = (this.touchEnd - this.touchStart);
-      if (Math.abs(this.wheelValue) < 30) this.wheelValue = 0;
+      if (Math.abs(this.wheelValue) < 80) this.wheelValue = 0;
     } else {
       this.wheelValue = e.wheelDelta ?? e.deltaY;
     }
