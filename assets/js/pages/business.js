@@ -32,10 +32,10 @@ function initSwiper() {
     _swiper.business.destroy();
   }
   _swiper.business = new Swiper(".swiper-business", {
-    slidesPerView: 1.25,
+    slidesPerView: "auto",
+    // slidesPerView: 1.25,
     centeredSlides: true,
     spaceBetween: 20,
-    loop: true,
     navigation: {
       nextEl: ".business-next",
       prevEl: ".business-prev",

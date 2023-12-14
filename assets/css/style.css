@@ -1207,6 +1207,7 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 0;
 }
 .about.l-section .sec-title {
   text-align: center;
