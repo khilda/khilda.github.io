@@ -940,7 +940,7 @@ textarea {
 # section - works
 ################################*/
 .works {
-  background: url("./../images/bg_works.png") no-repeat 50% 0%;
+  background: url("./../images/bg_works.png") no-repeat 50% 0%/100% auto;
 }
 .works .filter-container {
   display: flex;
