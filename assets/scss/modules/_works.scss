@@ -8,7 +8,10 @@
     align-items: center;
     justify-content: center;
     gap: 17px;
-    margin: 55px auto 100px;
+    margin-top: clamp(10px, 3.984vh, 55px);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: clamp(30px, 7.881vh, 100px);
   }
 }
 //************************************
@@ -53,12 +56,11 @@
   border: 1px solid #2196f3;
   border-radius: 8px;
   width: 330px;
-  height: 455px;
+  height: min(49.51vh, 455px);
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   .w {
     &-img {
-      flex: none;
       display: flex;
       align-items: center;
       justify-content: center;

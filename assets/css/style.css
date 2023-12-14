@@ -241,7 +241,7 @@ textarea {
   resize: none;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
   .br-pc {
     display: initial;
   }
@@ -249,15 +249,7 @@ textarea {
     display: none;
   }
 }
-@media (min-width: 743px) and (max-width: 1439px) {
-  .br-pc {
-    display: initial;
-  }
-  .br-mo {
-    display: none;
-  }
-}
-@media (max-width: 1439px) {
+@media (max-width: 1023px) {
   .br-pc {
     display: none;
   }
@@ -346,7 +338,7 @@ textarea {
   transform: rotate(-45deg);
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
   .header .h-logo,
   .header .h-btn-toggle {
     display: none;
@@ -386,7 +378,7 @@ textarea {
     border-color: #2196f3;
   }
 }
-@media (max-width: 1439px) {
+@media (max-width: 1023px) {
   .header {
     background-color: rgba(0, 0, 0, 0.8);
   }
@@ -487,7 +479,7 @@ textarea {
   font-size: 12px;
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 1023px) {
   .footer-container {
     max-width: 100vw;
     padding: 36px 20px 20px;
@@ -567,16 +559,6 @@ textarea {
   cursor: pointer;
   z-index: 99;
 }
-.btn-top::before {
-  content: "";
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  bottom: -3px;
-  left: -3px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-}
 .btn-top::after {
   content: "";
   display: block;
@@ -595,13 +577,13 @@ textarea {
 }
 .btn-top svg.circle path {
   fill: none;
-  stroke: #2196f3;
+  stroke: transparent;
   stroke-width: 4;
   box-sizing: border-box;
   transition: all 200ms linear;
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 1023px) {
   .wrap {
     padding-top: 60px;
   }
@@ -641,7 +623,7 @@ textarea {
   width: 40px;
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 1023px) {
   :root {
     --swiper-pagination-bullet-size: 10px;
     --swiper-pagination-bullet-horizontal-gap: 5px;
@@ -731,7 +713,7 @@ textarea {
     background-position: 100% 100%;
   }
 }
-@media (max-width: 1439px) {
+@media (max-width: 1023px) {
   .visual {
     text-align: center;
   }
@@ -765,11 +747,12 @@ textarea {
 .business .sec-header {
   background-color: #f5f5f5;
   max-width: none;
-  padding: 97px 0 44px;
-  margin-bottom: 73px;
+  padding-top: min(10vh, 97px);
+  padding-bottom: min(4.78vh, 44px);
+  margin-bottom: min(5.984vh, 55px);
 }
 .business-nav {
-  margin: 67px auto 0;
+  margin: min(7.29vh, 67px) auto 0;
 }
 .business-nav .b-nav {
   border-radius: 35px;
@@ -821,7 +804,7 @@ textarea {
   border: 1px solid #2196f3;
   border-radius: 20px;
   width: 880px;
-  height: 380px;
+  height: min(41.3492vh, 380px);
   overflow: hidden;
   box-shadow: 16px 16px 12px -9px rgba(0, 0, 0, 0.12);
   transition: all 0.3s;
@@ -879,7 +862,7 @@ textarea {
   width: 100%;
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 1023px) {
   .business {
     padding-top: 60px;
   }
@@ -947,7 +930,10 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: 17px;
-  margin: 55px auto 100px;
+  margin-top: clamp(10px, 3.984vh, 55px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(30px, 7.881vh, 100px);
 }
 
 .select {
@@ -985,12 +971,11 @@ textarea {
   border: 1px solid #2196f3;
   border-radius: 8px;
   width: 330px;
-  height: 455px;
+  height: min(49.51vh, 455px);
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 .work-slide .w-img {
-  flex: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1039,12 +1024,12 @@ textarea {
   color: #9e9e9e;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
   .works .sec-header {
     text-align: center;
   }
 }
-@media (max-width: 1439px) {
+@media (max-width: 1023px) {
   .works {
     background: #fff;
   }
@@ -1087,8 +1072,16 @@ textarea {
 /* ##############################
 # section - client
 ################################*/
+:root {
+  --client-item: 6;
+}
+
 .client {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: url("./../images/bg_client.png") no-repeat 50% 50%/cover;
+  padding-bottom: 97px;
 }
 .client .sec-header {
   color: #fff;
@@ -1096,15 +1089,13 @@ textarea {
 .client-container {
   background-color: rgba(255, 255, 255, 0.9);
   width: 100%;
-  min-height: 560px;
-  max-height: calc(100vh - 540px);
   margin-top: 60px;
   padding: 20px 0 80px;
 }
 
 .client-list {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(var(--client-item), 1fr);
   justify-content: center;
   border-top: 1px solid #c1c1c1;
   border-bottom: 1px solid #c1c1c1;
@@ -1161,19 +1152,21 @@ textarea {
   background-color: #2196f3;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
   .client .sec-header {
     text-align: center;
   }
-}
-@media (max-width: 1439px) {
   .client-container {
-    height: 516px;
+    max-height: calc(100vh - 540px);
+    min-height: 560px;
+  }
+}
+@media (max-width: 1023px) {
+  .client-container {
     margin-top: 40px;
-    padding: 20px 0 0;
+    padding: 20px 0;
   }
   .client-list {
-    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     border: 0 none;
   }
@@ -1215,15 +1208,14 @@ textarea {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 67px;
-  margin-top: 96px;
+  margin-top: min(10.446vh, 96px);
 }
 .about-team .team-item {
   background-color: #f7f7f7;
   border-radius: 4px 40px 4px 40px;
-  width: 300px;
-  height: 350px;
-  padding: 40px;
+  width: min(22.72vw, 300px);
+  height: min(38.08vh, 350px);
+  padding: min(4.3525vh, 40px);
   color: #616161;
   box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.1);
 }
@@ -1231,23 +1223,23 @@ textarea {
   margin-top: 50px;
 }
 .about-team .team-icon {
-  width: 120px;
-  height: 120px;
+  width: min(max(120px, 27.27vw), 13.0576vh);
+  aspect-ratio: 1/1;
   overflow: hidden;
 }
 .about-team .team-icon img {
   width: 100%;
 }
 .about-team .team-title {
-  margin-top: 65px;
-  font-size: 24px;
+  margin-top: min(7.0729vh, 65px);
+  font-size: min(5.4545vw, 24px);
   font-weight: 700;
 }
 .about-team .team-title::after {
   content: "";
   display: block;
   background: linear-gradient(90deg, #155fea 52.22%, rgba(21, 95, 234, 0) 100%);
-  width: 200px;
+  width: min(21.76vh, 200px);
   height: 2px;
   margin-top: 10px;
 }
@@ -1261,7 +1253,7 @@ textarea {
   justify-content: space-between;
   border-top: 1px solid #9e9e9e;
   border-bottom: 1px solid #9e9e9e;
-  margin-top: 100px;
+  margin-top: min(10.88vh, 100px);
   padding: 20px 0;
   text-align: center;
 }
@@ -1288,12 +1280,12 @@ textarea {
   transform: translate(-10px, -8px);
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
   .about .sec-header {
     text-align: center;
   }
 }
-@media (max-width: 1439px) {
+@media (max-width: 1023px) {
   .about-team {
     justify-content: center;
     flex-wrap: wrap;
@@ -1355,7 +1347,11 @@ textarea {
 # section - history
 ################################*/
 .history {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: #f6f8ff;
+  padding-bottom: 97px;
 }
 .history::before {
   content: "";
@@ -1365,7 +1361,7 @@ textarea {
   width: 100%;
   max-width: 1400px;
   padding: 0 20px;
-  margin: 80px auto 0;
+  margin: min(7.7vh, 80px) auto 0;
 }
 .history-nav-container::after {
   content: "";
@@ -1407,8 +1403,7 @@ textarea {
   flex-wrap: wrap;
   align-content: center;
   width: 350px;
-  height: 442px;
-  margin: 80px 0 0;
+  margin: min(7.7vh, 80px) 0 0;
 }
 .history-item {
   display: flex;
@@ -1416,12 +1411,13 @@ textarea {
   border-bottom: 1px solid #9e9e9e;
   width: 100%;
   height: 63px;
+  word-break: keep-all;
 }
 .history-item:first-child {
   border-top: 1px solid #9e9e9e;
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 1023px) {
   .history::before {
     content: none;
   }

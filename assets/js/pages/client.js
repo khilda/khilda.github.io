@@ -44,8 +44,12 @@ function eventNav() {
   });
 }
 function appendClientList(key = "tabClient") {
-  const column = isPC ? 18 : 8;
-  const slideArr = chunk(tabContent[key], column);
+  const column = Math.floor(
+    document.querySelector(".swiper-client").clientWidth / 160
+  );
+  console.log(column);
+  document.documentElement.style.setProperty('--client-item', column);
+  const slideArr = chunk(tabContent[key], column * 3);
   let slideTemplate = "";
   for (let slide of slideArr) {
     slideTemplate += `<ul class="swiper-slide client-list"> 
@@ -58,7 +62,7 @@ function appendClientList(key = "tabClient") {
 
 function setTemplateItem(arr, key) {
   const template = ({ img, desc, key }) => {
-    return `<div class="swiper-slide client-item" data-category="${key}">
+    return `<div class="client-item" data-category="${key}">
     <figure class="client-logo">
       <img
         src="./../assets/images/${img}"

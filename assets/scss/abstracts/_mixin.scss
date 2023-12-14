@@ -27,7 +27,23 @@
     border-radius: 8px;
   }
 }
-$tablet: 743px;
+// fluidly resize type
+// based on example here https://css-tricks.com/snippets/css/fluid-typography/
+@mixin fluid-type($font-min, $font-max, $screen-min, $screen-max) {
+  font-size: #{$font-min}px;
+
+  @media only screen and (min-width: #{$screen-min}px) {
+    font-size: calc(
+      #{$font-min}px + #{($font-max - $font-min)} * (100vw - #{$screen-min}px) /
+        (#{$screen-max} - #{$screen-min})
+    );
+  }
+
+  @media only screen and (min-width: #{$screen-max}px) {
+    font-size: #{$font-max}px;
+  }
+}
+$tablet: 1024px;
 $desktop: 1440px;
 // @mixin mobile {
 //   @media (max-width: ($tablet - 1)) {
@@ -35,17 +51,12 @@ $desktop: 1440px;
 //   }
 // }
 @mixin mobile {
-  @media (max-width: ($desktop - 1)) {
-    @content;
-  }
-}
-@mixin tablet-only {
-  @media (min-width: $tablet) and (max-width: ($desktop - 1)) {
+  @media (max-width: ($tablet - 1)) {
     @content;
   }
 }
 @mixin desktop {
-  @media (min-width: $desktop) {
+  @media (min-width: $tablet) {
     @content;
   }
 }

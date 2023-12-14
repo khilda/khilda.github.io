@@ -20,7 +20,7 @@ function initSwiper() {
     slideToClickedSlide: true,
     breakpoints: {
       // when window width is >= 320px
-      1440: {
+      1024: {
         spaceBetween: 100,
       },
     },
@@ -35,7 +35,7 @@ function initSwiper() {
     },
     breakpoints: {
       // when window width is >= 320px
-      1440: {
+      1024: {
         slidesPerView: 3,
         spaceBetween: 40,
         centeredSlides: false,
@@ -61,8 +61,8 @@ function eventNav() {
   });
 }
 
-function appendHistoryList(key = "tabHistory2024") {
-  const slideArr = chunk(tabContent[key], 7);
+function appendHistoryList(key = "tabHistory2023") {
+  const slideArr = chunk(tabContent[key], 5);
   let slideTemplate = "";
   for (let slide of slideArr) {
     slideTemplate += `<ul class="swiper-slide history-list"> 
