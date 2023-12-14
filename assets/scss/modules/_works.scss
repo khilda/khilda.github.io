@@ -43,8 +43,6 @@
   width: 100%;
   max-width: $l-container;
   margin: 0 auto;
-  .swiper-wrapper {
-  }
 }
 //************************************
 //# swiper item
@@ -130,9 +128,6 @@
   .swiper-works {
     width: 100%;
     min-height: 465px;
-    .swiper-wrapper {
-      gap: 20px;
-    }
   }
   .work-slide {
     width: 235px;

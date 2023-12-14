@@ -978,6 +978,7 @@ textarea {
   max-width: 1400px;
   margin: 0 auto;
 }
+
 .work-slide {
   display: flex;
   flex-direction: column;
@@ -1057,9 +1058,6 @@ textarea {
   .swiper-works {
     width: 100%;
     min-height: 465px;
-  }
-  .swiper-works .swiper-wrapper {
-    gap: 20px;
   }
   .work-slide {
     width: 235px;

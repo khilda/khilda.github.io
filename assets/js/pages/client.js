@@ -46,7 +46,6 @@ function eventNav() {
 function appendClientList(key = "tabClient") {
   const column = isPC ? 18 : 8;
   const slideArr = chunk(tabContent[key], column);
-  console.log(slideArr)
   let slideTemplate = "";
   for (let slide of slideArr) {
     slideTemplate += `<ul class="swiper-slide client-list"> 
