@@ -44,7 +44,7 @@ function eventNav() {
   });
 }
 function appendClientList(key = "tabClient") {
-  const column = isPC ? 24 : 8;
+  const column = isPC ? 18 : 8;
   const slideArr = chunk(tabContent[key], column);
   console.log(slideArr)
   let slideTemplate = "";

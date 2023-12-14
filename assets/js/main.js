@@ -45,10 +45,11 @@ function eventHeader() {
       nav.classList.add("is-active");
       const id = nav.dataset.section;
       const _target = document.getElementById(id);
-      onClickToggle();
       window.pageAnimation.scrollToSection(_target);
+      onClickToggle();
     });
   });
+
   // header hide
   window.addEventListener("scroll", (e) => {
     if (window.scrollY === 0) {
@@ -56,5 +57,10 @@ function eventHeader() {
     } else {
       document.querySelector(".header").classList.remove("is-hide");
     }
+
+    const id = document.querySelector(".isPageActive").getAttribute("id");
+    const _target = document.querySelector(`[data-section="${id}"]`);
+    _navs.forEach((nav) => nav.classList.remove("is-active"));
+    _target?.classList.add("is-active");
   });
 }

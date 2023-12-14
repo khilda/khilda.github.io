@@ -1,6 +1,14 @@
 /* ##############################
 # section - about
 ################################*/
+.about.l-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .sec-title{
+    text-align: center;
+  }
+}
 .about-team {
   display: flex;
   align-items: flex-start;
@@ -87,8 +95,8 @@
 //************************************
 //# responsive
 //************************************
-@include desktop{
-  .about .sec-header{
+@include desktop {
+  .about .sec-header {
     text-align: center;
   }
 }

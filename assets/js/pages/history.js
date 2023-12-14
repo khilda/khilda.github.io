@@ -17,10 +17,7 @@ function initSwiper() {
   _swiper.nav = new Swiper(".history-nav", {
     slidesPerView: "auto",
     spaceBetween: 40,
-    freeMode: {
-      enabled: true,
-      sticky: true,
-    },
+    slideToClickedSlide: true,
     breakpoints: {
       // when window width is >= 320px
       1440: {
@@ -56,6 +53,7 @@ function eventNav() {
       // add class
       navs.forEach((n) => n.classList.remove("is-active"));
       nav.classList.add("is-active");
+
       appendHistoryList(nav.dataset.year);
       _swiper.history.updateSlides();
       _swiper.history.slideTo(0, 300);
