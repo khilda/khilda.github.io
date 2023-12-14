@@ -14,23 +14,16 @@ export function fnBusiness() {
 }
 
 function initSwiper() {
-  if (_swiper.nav) {
-    _swiper.nav.destroy();
-  }
   _swiper.nav = new Swiper(".business-nav", {
     slidesPerView: "auto",
     spaceBetween: 10,
     slideToClickedSlide: true,
     breakpoints: {
-      // when window width is >= 320px
       1440: {
         spaceBetween: 20,
       },
     },
   });
-  if (_swiper.business) {
-    _swiper.business.destroy();
-  }
   _swiper.business = new Swiper(".swiper-business", {
     slidesPerView: "auto",
     // slidesPerView: 1.25,
@@ -63,7 +56,8 @@ function eventNav() {
       navs.forEach((n) => n.classList.remove("is-active"));
       nav.classList.add("is-active");
       appendBusinessList(nav.dataset.nav);
-      initSwiper();
+      _swiper.business.updateSlides();
+      _swiper.business.slideTo(0, 300);
     });
   });
 }
