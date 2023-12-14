@@ -1373,13 +1373,17 @@ textarea {
   background: linear-gradient(90deg, #155fea -2.25%, rgba(21, 95, 234, 0) 100%);
 }
 
-.history-nav {
+.history-nav-container {
   padding: 0 100px;
+}
+
+.history-nav {
+  padding: 0;
   overflow: visible;
 }
 .history-nav .h-nav {
   align-self: center;
-  width: auto;
+  width: 150px;
   font-size: 64px;
   font-weight: 700;
   color: #e7e7e7;
@@ -1394,7 +1398,7 @@ textarea {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 100px;
 }
 
 .history-list {

@@ -31,12 +31,15 @@
   }
 }
 
-.history-nav {
+.history-nav-container {
   padding: 0 100px;
+}
+.history-nav {
+  padding: 0;
   overflow: visible;
   .h-nav {
     align-self: center;
-    width: auto;
+    width: 150px;
     font-size: 64px;
     font-weight: 700;
     color: #e7e7e7;
@@ -52,7 +55,7 @@
   width: 100%;
   max-width: $l-container;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 100px;
 }
 .history {
   &-list {
