@@ -1233,7 +1233,7 @@ textarea {
   border-radius: 4px 40px 4px 40px;
   width: min(22.72vw, 300px);
   height: min(38.08vh, 350px);
-  padding: min(4.3525vh, 40px);
+  padding: min(4.3525vh, 40px) min(2.3525vw, 40px);
   color: #616161;
   box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.1);
 }
