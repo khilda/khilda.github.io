@@ -136,6 +136,7 @@ export class PageScroll {
       scrollTo = window.scrollY + this._curDom.getBoundingClientRect().top;
     } else {
       this._curDom = null;
+      this._sections[this._sections.length - 1].classList.add("isPageActive");
       scrollTo = document.documentElement.getBoundingClientRect().height;
     }
     window.scrollTo({
