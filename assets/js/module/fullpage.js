@@ -1,4 +1,4 @@
-export class PageAnimation {
+export class PageScroll {
   constructor() {
     this._sections = null; // fullpage 이벤트 대상 타겟들
     this._curDom = null; // 현재 활성화된 section
@@ -7,6 +7,7 @@ export class PageAnimation {
     this.touchStart = 0; // 터치시작좌표
     this.touchEnd = 0; // 터치종료좌표
 
+    this._scrollBefore = null; // 스크롤시 공통 이벤트
     this.callback = []; // 스크롤시 callback 이벤트
 
     this.timerId = null; // 스크롤 디바운스
@@ -38,7 +39,7 @@ export class PageAnimation {
   handleScroll(e) {
     if (e.type === "touchend") {
       this.touchEnd = e.changedTouches[0]?.clientY ?? 0;
-      this.wheelValue = (this.touchEnd - this.touchStart);
+      this.wheelValue = this.touchEnd - this.touchStart;
       if (Math.abs(this.wheelValue) < 80) this.wheelValue = 0;
     } else {
       this.wheelValue = e.wheelDelta ?? e.deltaY;
@@ -100,6 +101,10 @@ export class PageAnimation {
     } else {
       this._curDom = null;
     }
+    if (this._curDom && this._scrollBefore) {
+      this._scrollBefore(this._curDom);
+    }
+    
     this.scrollToSection();
 
     if (this.callback.length) {
@@ -109,27 +114,6 @@ export class PageAnimation {
         }
       });
     }
-  }
-  updateMobileSection() {
-    if (!this._sections) {
-      this._sections = document.querySelectorAll("[data-page]");
-      this._curDom = this._sections[0];
-    }
-    // 스크롤 범위 체크
-    const scrollY = window.scrollY;
-    this._sections.forEach((el) => {
-      // 해당 Dom이 화면 중간위치하면 active
-      if (el.offsetTop - window.innerHeight / 2 < scrollY) {
-        el.classList.add("isPageActive");
-      }
-      if (this.callback.length) {
-        this.callback.forEach((cb) => {
-          if (cb.target === el) {
-            cb.fn();
-          }
-        });
-      }
-    });
   }
   scrollToSection(target) {
     let scrollTo = 0;
@@ -149,6 +133,9 @@ export class PageAnimation {
       left: 0,
       behavior: "smooth",
     });
+  }
+  scrollBefore(fn) {
+    this._scrollBefore = fn;
   }
   scrollCallback(target, fn) {
     this.callback.push({ target, fn });

@@ -42,3 +42,17 @@
     }
   }
 }
+//************************************
+//# page transition
+//************************************
+.trns {
+  transform: translateY(30px);
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+}
+.isPageActive .trns{
+  transform: translateY(0);
+  opacity: 1;
+}

@@ -27,22 +27,9 @@
     border-radius: 8px;
   }
 }
-// fluidly resize type
-// based on example here https://css-tricks.com/snippets/css/fluid-typography/
-@mixin fluid-type($font-min, $font-max, $screen-min, $screen-max) {
-  font-size: #{$font-min}px;
-
-  @media only screen and (min-width: #{$screen-min}px) {
-    font-size: calc(
-      #{$font-min}px + #{($font-max - $font-min)} * (100vw - #{$screen-min}px) /
-        (#{$screen-max} - #{$screen-min})
-    );
-  }
-
-  @media only screen and (min-width: #{$screen-max}px) {
-    font-size: #{$font-max}px;
-  }
-}
+//************************************
+//# Break point
+//************************************
 $tablet: 1024px;
 $desktop: 1440px;
 // @mixin mobile {
@@ -59,4 +46,22 @@ $desktop: 1440px;
   @media (min-width: $tablet) {
     @content;
   }
+}
+
+//************************************
+//# get vw/vh
+//************************************
+$max-breakpoint-main: $desktop;
+$max-breakpoint-main-height: 1080;
+$max-breakpoint-main-tablet: $tablet;
+@function get-vw($target) {
+  // 1 vw is equal to 1% of the viewport width
+  $vw-context: ($max-breakpoint-main * 0.01) * 1px; // 1% viewport width
+  @return calc($target/$vw-context) * 1vw; // 100=1, 140=1.4
+}
+
+@function get-vh($target) {
+  // 1 vw is equal to 1% of the viewport width
+  $vw-context: ($max-breakpoint-main-height * 0.01) * 1px; // 1% viewport width
+  @return calc($target/$vw-context) * 1vh;
 }

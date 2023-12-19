@@ -1,4 +1,5 @@
-import { PageAnimation } from "./module/fullpage.js";
+import { PageScroll } from "./module/fullpage.js";
+// import { PageTransition } from "./module/pageTransition.js";
 import { btnTopAnimate } from "./module/topAnimation.js";
 import { eventTab } from "./module/tab.js";
 
@@ -10,7 +11,8 @@ import { fnClient } from "./pages/client.js";
 import { fnHistory } from "./pages/history.js";
 window.addEventListener("DOMContentLoaded", () => {
   // layout
-  window.pageAnimation = new PageAnimation();
+  window.pageScroll = new PageScroll();
+  window.pageScroll.scrollBefore(pageTransition);
   btnTopAnimate();
   eventHeader();
   // component
@@ -45,7 +47,7 @@ function eventHeader() {
       nav.classList.add("is-active");
       const id = nav.dataset.section;
       const _target = document.getElementById(id);
-      window.pageAnimation.scrollToSection(_target);
+      window.pageScroll.scrollToSection(_target);
       onClickToggle();
     });
   });
@@ -62,5 +64,16 @@ function eventHeader() {
     const _target = document.querySelector(`[data-section="${id}"]`);
     _navs.forEach((nav) => nav.classList.remove("is-active"));
     _target?.classList.add("is-active");
+  });
+}
+/**
+ * transition
+ */
+function pageTransition(_curDom) {
+  document
+    .querySelectorAll(".trns")
+    .forEach((el) => el.removeAttribute("style"));
+  _curDom.querySelectorAll(".trns").forEach((trns, idx) => {
+    trns.setAttribute("style", `transition-delay: ${idx * 0.15 + 0.5}s`);
   });
 }

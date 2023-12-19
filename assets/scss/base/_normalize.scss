@@ -5,6 +5,9 @@ body {
   font-size: $font-size;
   color: var(--color, #353535);
   line-height: 1.25;
+  * {
+    transition: all 0.25s;
+  }
 }
 
 dt {
