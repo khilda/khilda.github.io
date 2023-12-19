@@ -1474,3 +1474,24 @@ textarea {
     margin-top: 40px;
   }
 }
+.wrap.type2 .container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.5s;
+  perspective: 3000;
+  transform-style: preserve-3d;
+}
+.wrap.type2 .l-section {
+  transform: rotateX(180deg) scale(0.3);
+  backface-visibility: hidden;
+  transition: transform 1s ease-in-out;
+  will-change: transform;
+}
+.wrap.type2 .isPageActive {
+  transform: scale(1);
+}

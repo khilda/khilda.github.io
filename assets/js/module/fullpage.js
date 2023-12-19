@@ -2,12 +2,14 @@ export class PageScroll {
   constructor() {
     this._sections = null; // fullpage 이벤트 대상 타겟들
     this._curDom = null; // 현재 활성화된 section
+    this._idx = 0; // 현재 활성화된 section idx
     this.wheelValue = 0; // 스크롤 범위
     this.wheelDir = 0; // 스크롤 방향 (-1: 위, 1: 아래)
     this.touchStart = 0; // 터치시작좌표
     this.touchEnd = 0; // 터치종료좌표
 
     this._scrollBefore = null; // 스크롤시 공통 이벤트
+    this._scrollAfter = null; // 스크롤시 공통 이벤트
     this.callback = []; // 스크롤시 callback 이벤트
 
     this.timerId = null; // 스크롤 디바운스
@@ -45,7 +47,8 @@ export class PageScroll {
       this.wheelValue = e.wheelDelta ?? e.deltaY;
     }
     this.wheelDir = Math.max(-1, Math.min(1, this.wheelValue));
-    if (!(window.scrollY === 0 && e.deltaY < 0)) {
+
+    if (!(this._idx === 0 && this.wheelDir > 0)) {
       // 페이지 전환
       this.debouncing(this.updateCurrentSection);
     }
@@ -86,6 +89,7 @@ export class PageScroll {
     if (!this._sections) {
       this._sections = document.querySelectorAll("[data-page]");
       this._curDom = this._sections[0];
+      this._idx = 0;
     }
     // PC일 경우에만 fullpage 이벤트
     this._sections.forEach((el) => el.classList.remove("isPageActive"));
@@ -95,17 +99,23 @@ export class PageScroll {
     if (idx < 0) {
       this._curDom = this._sections[0];
       this._curDom.classList.add("isPageActive");
+      this._idx = 0;
       return;
     } else if (idx < this._sections.length) {
       this._curDom = this._sections[idx];
+      this._idx = idx;
     } else {
       this._curDom = null;
+      this._idx = null;
     }
+
     if (this._curDom && this._scrollBefore) {
       this._scrollBefore(this._curDom);
     }
-    
     this.scrollToSection();
+    if (this._curDom && this._scrollAfter) {
+      this._scrollAfter(this._curDom, this._idx);
+    }
 
     if (this.callback.length) {
       this.callback.forEach((cb) => {
@@ -136,6 +146,9 @@ export class PageScroll {
   }
   scrollBefore(fn) {
     this._scrollBefore = fn;
+  }
+  scrollAfter(fn) {
+    this._scrollAfter = fn;
   }
   scrollCallback(target, fn) {
     this.callback.push({ target, fn });
