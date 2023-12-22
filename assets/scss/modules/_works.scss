@@ -21,12 +21,15 @@
 //************************************
 .select-container {
   position: relative;
+  flex: none;
   .select-box {
     border-radius: 4px;
     border: 1px solid #eeeeee;
     background-color: #fff;
     width: 172px;
-    padding: 9px 36px 9px 16px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 36px 0 16px;
     cursor: pointer;
     @include ellipsis;
     &:hover {
@@ -59,6 +62,7 @@
     top: 45px;
     left: 0;
     width: 100%;
+    font-size: 14px;
     z-index: 99;
     box-shadow: 0px 4px 8px -2px rgba(0, 0, 0, 0.1);
     .select-option {
@@ -66,12 +70,12 @@
       align-items: center;
       gap: 10px;
       background: #fff;
-      min-width: 120px;
+      width: 100%;
       line-height: 40px;
       padding: 0 10px;
       color: #000;
       text-align: left;
-      font-size: 14px;
+      font-size: inherit;
       cursor: pointer;
       &:hover {
         background-color: #e3f2fd;
@@ -175,8 +179,19 @@
       gap: 17px;
       margin: 25px auto 40px;
     }
-    .select {
-      min-width: 100px;
+    .select-container {
+      .select-box {
+        width: 100px;
+        padding-left: 10px;
+        font-size: 12px;
+      }
+      .select-options {
+        font-size: 10px;
+        .select-chk {
+          width: 16px;
+          height: 16px;
+        }
+      }
     }
   }
   .swiper-works {
