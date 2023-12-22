@@ -11,6 +11,8 @@ export function fnBusiness() {
   appendBusinessList();
   initSwiper();
   eventNav();
+  window._business = _swiper.business;
+
 }
 
 function initSwiper() {
