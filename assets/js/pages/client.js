@@ -1,5 +1,10 @@
 import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
-import tabContent from "../data/client.json" assert { type: "json" };
+
+let tabContent;
+window.onload = async function () {
+  const response = await fetch("./data/client.json");
+  tabContent = await response.json();z
+};
 
 const _client = document.querySelector("#client");
 const _swiper = {

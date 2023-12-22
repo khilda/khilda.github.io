@@ -1,5 +1,10 @@
 import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
-import tabContent from "../data/business.json" assert { type: "json" };
+
+let tabContent;
+window.onload = async function () {
+  const response = await fetch("./data/business.json");
+  tabContent = await response.json();z
+};
 
 const _business = document.querySelector("#business");
 const _swiper = {
@@ -12,7 +17,6 @@ export function fnBusiness() {
   initSwiper();
   eventNav();
   window._business = _swiper.business;
-
 }
 
 function initSwiper() {
