@@ -3,6 +3,7 @@ import tabContent from "../data/work.json" assert { type: "json" };
 
 const _work = document.querySelector("#works");
 export function fnWoks() {
+  eventSelect();
   appendWorkList();
   const swiperCard = new Swiper(".swiper-works", {
     slidesPerView: "auto",
@@ -68,4 +69,69 @@ function setTemplateItem(arr) {
     returnTemplate += template(item);
   });
   return returnTemplate;
+}
+/**
+ * select
+ */
+function eventSelect() {
+  const selectContainers = document.querySelectorAll(".select-container");
+  function deactivateAllSelect(_nonTarget) {
+    selectContainers.forEach((container) => {
+      const selectBox = container.querySelector(".select-box");
+      const option = container.querySelector(".select-options");
+      if (_nonTarget !== selectBox) {
+        selectBox.classList.remove("active");
+        option.removeAttribute("style");
+      }
+    });
+  }
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".select-container")) {
+      deactivateAllSelect();
+    }
+  });
+  function initSelectBox(selectContainer) {
+    const _box = selectContainer.querySelector(".select-box");
+    const _chks = selectContainer.querySelectorAll(".select-chk");
+    // init
+    _chks.forEach((chk) => {
+      chk.setAttribute("name", _box.dataset.name);
+    });
+    // default value
+    _box.textContent = _box.dataset.name;
+  }
+  function setSelectValue(name) {
+    let value = [];
+    let str = "";
+    document.getElementsByName(name).forEach((chk) => {
+      if (chk.checked) value.push(chk.value);
+    });
+    if (value.length === 0) {
+      str = name;
+    } else if (value.length > 1) {
+      str = `${value[0]} 외 ${value.length - 1}개`;
+    } else {
+      str = value.join("");
+    }
+    document.querySelector(`[data-name="${name}"]`).textContent = str;
+  }
+  selectContainers.forEach((container) => {
+    initSelectBox(container);
+    if (container.classList.contains("is-disabled")) return;
+    const selectBox = container.querySelector(".select-box");
+    const selectChecks = container.querySelectorAll(".select-chk");
+    container.addEventListener("click", (e) => {
+      if (e.target === selectBox) {
+        deactivateAllSelect(selectBox);
+        selectBox.classList.toggle("active");
+      }
+      selectChecks.forEach((chk) => {
+        if (e.target === chk) {
+          selectBox.classList.remove("active");
+          setSelectValue(selectBox.dataset.name);
+        }
+      });
+    });
+  });
 }
