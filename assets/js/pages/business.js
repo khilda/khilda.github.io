@@ -1,10 +1,5 @@
 import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
-
-let tabContent;
-window.onload = async function () {
-  const response = await fetch("./data/business.json");
-  tabContent = await response.json();
-};
+import tabContent from "../data/business.js";
 
 const _business = document.querySelector("#business");
 const _swiper = {

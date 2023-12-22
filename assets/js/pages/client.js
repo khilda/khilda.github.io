@@ -1,10 +1,5 @@
 import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
-
-let tabContent;
-window.onload = async function () {
-  const response = await fetch("./data/client.json");
-  tabContent = await response.json();
-};
+import tabContent from "../data/client.js";
 
 const _client = document.querySelector("#client");
 const _swiper = {
@@ -52,7 +47,7 @@ function appendClientList(key = "tabClient") {
   const column = Math.floor(
     document.querySelector(".swiper-client").clientWidth / 160
   );
-  document.documentElement.style.setProperty('--client-item', column);
+  document.documentElement.style.setProperty("--client-item", column);
   const slideArr = chunk(tabContent[key], column * 3);
   let slideTemplate = "";
   for (let slide of slideArr) {

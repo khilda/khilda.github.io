@@ -1,10 +1,5 @@
 import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
-
-let tabContent;
-window.onload = async function () {
-  const response = await fetch("./data/work.json");
-  tabContent = await response.json();z
-};
+import tabContent from "../data/work.js";
 
 const _work = document.querySelector("#works");
 export function fnWoks() {
