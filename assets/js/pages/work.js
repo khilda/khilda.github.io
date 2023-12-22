@@ -128,7 +128,6 @@ function eventSelect() {
       }
       selectChecks.forEach((chk) => {
         if (e.target === chk) {
-          selectBox.classList.remove("active");
           setSelectValue(selectBox.dataset.name);
         }
       });
