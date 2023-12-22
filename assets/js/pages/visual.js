@@ -1,5 +1,3 @@
-import tabContent from "../data/business.json" assert { type: "json" };
-
 export function fnVisual() {
   const config = {
     particles: {

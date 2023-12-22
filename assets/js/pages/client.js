@@ -3,7 +3,7 @@ import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs
 let tabContent;
 window.onload = async function () {
   const response = await fetch("./data/client.json");
-  tabContent = await response.json();z
+  tabContent = await response.json();
 };
 
 const _client = document.querySelector("#client");
