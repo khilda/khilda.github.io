@@ -302,12 +302,12 @@
           gsap
             .timeline({
               defaults: {
-                duration: 0.5,
-                ease: "elastic.out(0.3)",
+                duration: 0.35,
+                ease: "power3",
                 stagger: { each: -0.1 * dir },
               },
             })
-            .fromTo(".business-slide", { x: 25 * dir }, { x: 0 });
+            .fromTo(".business-slide", { x: 15 * dir }, { x: 0 });
         });
       });
     </script>
