@@ -3,15 +3,15 @@
 ################################*/
 .footer {
   background-color: #001331;
-  color: #fff;
+  color: #eee;
   &-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     position: relative;
     max-width: $l-container;
     margin: 0 auto;
-    padding: 126px 20px 30px;
+    padding: 126px 0;
   }
   .f-info {
     gap: 10px;
@@ -62,7 +62,7 @@
   .f-copy {
     position: absolute;
     right: 30px;
-    bottom: 30px;
+    bottom: 126px;
     font-size: 12px;
   }
 }

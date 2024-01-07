@@ -5,17 +5,26 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #f6f8ff;
-  padding-bottom: 97px;
+  background: linear-gradient(
+    180deg,
+    rgba(21, 95, 234, 0.1) 3.15%,
+    rgba(249, 250, 254, 0.1) 29.24%,
+    rgba(194, 213, 249, 0) 42.59%,
+    rgba(21, 95, 234, 0.1) 100%
+  );
   &::before {
     content: "";
   }
+  .sec-header {
+    margin-bottom: min(7.7vh, 80px);
+  }
 }
+//************************************
+//# Swiper nav
+//************************************
 .history-nav-container {
   width: 100%;
-  max-width: $l-container;
-  padding: 0 20px;
-  margin: min(7.7vh, 80px) auto 0;
+  position: relative;
   &::after {
     content: "";
     display: block;
@@ -29,19 +38,26 @@
       rgba(21, 95, 234, 0) 100%
     );
   }
-}
-
-.history-nav-container {
-  padding: 0 100px;
+  .swiper-button {
+    top: calc(50% - 20px);
+    &.prev {
+      left: calc(50% - 680px);
+    }
+    &.next {
+      right: calc(50% - 680px);
+    }
+  }
 }
 .history-nav {
-  padding: 0;
-  overflow: visible;
+  width: 1194px;
+  margin: 0 auto;
+  padding-bottom: 0;
   .h-nav {
     align-self: center;
-    width: 150px;
+    width: 190px;
     font-size: 64px;
     font-weight: 700;
+    text-align: center;
     color: #e7e7e7;
     cursor: pointer;
     &.is-active {
@@ -50,12 +66,15 @@
     }
   }
 }
-
+//************************************
+//# Swiper Content
+//************************************
 .history-container {
-  width: 100%;
-  max-width: $l-container;
-  margin: 0 auto;
-  padding: 0 100px;
+  width: 1130px;
+  margin: min(7.7vh, 80px) auto;
+  .history-pagination {
+    display: none;
+  }
 }
 .history {
   &-list {
@@ -64,7 +83,7 @@
     flex-wrap: wrap;
     align-content: center;
     width: 350px;
-    margin: min(7.7vh, 80px) 0 0;
+    margin: 0 0;
   }
   &-item {
     display: flex;
@@ -96,14 +115,19 @@
       height: 42px;
       font-size: 12px;
     }
+    .sec-header {
+      margin-bottom: 32px;
+    }
   }
   .history-nav-container {
-    margin-top: 32px;
     padding-left: 20px;
     padding-right: 20px;
   }
   .history-container {
     padding: 0;
+    .history-pagination {
+      display: block;
+    }
   }
   .history-nav {
     padding: 0;

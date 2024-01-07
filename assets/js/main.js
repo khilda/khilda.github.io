@@ -29,6 +29,9 @@ window.addEventListener("DOMContentLoaded", () => {
  */
 function eventHeader() {
   const _headerToggleBtn = document.querySelector(".h-btn-toggle");
+  /**
+   * Mobile GNB Menu Toggle
+   */
   const onClickToggle = (e) => {
     if (_headerToggleBtn.classList.contains("is-active")) {
       _headerToggleBtn.classList.remove("is-active");
@@ -39,31 +42,40 @@ function eventHeader() {
     }
   };
   _headerToggleBtn.addEventListener("click", onClickToggle);
-  // click event
+  /**
+   * Nav Click Event
+   */
   const _navs = document.querySelectorAll(".nav-btn");
   _navs.forEach((nav) => {
     nav.addEventListener("click", (e) => {
-      _navs.forEach((nav) => nav.classList.remove("is-active"));
-      nav.classList.add("is-active");
       const id = nav.dataset.section;
       const _target = document.getElementById(id);
       window.pageScroll.scrollToSection(_target);
+      activeNav(_target);
       onClickToggle();
     });
   });
+  /**
+   * Nav Active
+   */
+  const activeNav = (_dom) => {
+    const curDom = _dom ?? document.querySelector(".isPageActive");
+    const id = curDom.getAttribute("id");
+    const _target = document.querySelector(`[data-section="${id}"]`);
+    _navs.forEach((nav) => nav.classList.remove("is-active"));
+    _target?.classList.add("is-active");
+  };
+  window.pageScroll.scrollAfter(activeNav);
 
-  // header hide
+  /**
+   * Hide Nav on the Top
+   */
   window.addEventListener("scroll", (e) => {
     if (window.scrollY === 0) {
       document.querySelector(".header").classList.add("is-hide");
     } else {
       document.querySelector(".header").classList.remove("is-hide");
     }
-
-    const id = document.querySelector(".isPageActive").getAttribute("id");
-    const _target = document.querySelector(`[data-section="${id}"]`);
-    _navs.forEach((nav) => nav.classList.remove("is-active"));
-    _target?.classList.add("is-active");
   });
 }
 /**

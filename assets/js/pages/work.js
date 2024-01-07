@@ -9,8 +9,13 @@ export function fnWoks() {
     slidesPerView: "auto",
     spaceBetween: 27,
     centeredSlides: true,
+    loop: true,
+    navigation: {
+      nextEl: ".work-next",
+      prevEl: ".work-prev",
+    },
     pagination: {
-      el: ".swiper-pagination",
+      el: ".work-pagination",
       type: "bullets",
     },
     breakpoints: {

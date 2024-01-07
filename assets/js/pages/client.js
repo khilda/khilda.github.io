@@ -21,6 +21,7 @@ function initSwiper() {
   _swiper.client = new Swiper(".swiper-client", {
     slidesPerView: 1,
     centeredSlides: true,
+    loop: true,
     pagination: {
       el: ".client-pagination",
       type: "bullets",
@@ -45,7 +46,7 @@ function eventNav() {
 }
 function appendClientList(key = "tabClient") {
   const column = Math.floor(
-    document.querySelector(".swiper-client").clientWidth / 160
+    document.querySelector(".swiper-client").clientWidth / 264
   );
   document.documentElement.style.setProperty("--client-item", column);
   const slideArr = chunk(tabContent[key], column * 3);

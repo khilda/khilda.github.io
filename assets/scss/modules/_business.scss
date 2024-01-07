@@ -39,26 +39,6 @@
   .swiper-wrapper {
     padding: 27px 0;
   }
-  .swiper-button {
-    position: absolute;
-    top: calc(50% - 60px);
-    background: no-repeat 50% 50% / cover;
-    width: 40px;
-    height: 40px;
-    z-index: 10;
-    cursor: pointer;
-    &.prev {
-      left: calc(50% - 660px);
-      background-image: url("./../images/btn_swiper_prev.png");
-    }
-    &.next {
-      right: calc(50% - 660px);
-      background-image: url("./../images/btn_swiper_next.png");
-    }
-  }
-  .swiper-pagination {
-    display: none;
-  }
 }
 ///************************************
 //# Swiper Item
@@ -66,31 +46,19 @@
 .business-slide {
   display: flex;
   align-items: stretch;
-  border: 1px solid $c-primary;
+  border: 1px solid #9e9e9e;
   border-radius: 20px;
   width: 880px;
   height: min(41.3492vh, 380px);
   overflow: hidden;
   box-shadow: 16px 16px 12px -9px rgba(0, 0, 0, 0.12);
   transition: all 0.3s;
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.3s;
+
+  &.swiper-slide-active {
+    border-color: $c-primary;
   }
   &:not(.swiper-slide-active) {
-    opacity: 0.5;
-    &::after {
-      opacity: 1;
-    }
+    filter: grayscale(100%);
   }
   .b {
     &-content {
@@ -146,9 +114,6 @@
   .swiper-business {
     .swiper-button {
       display: none;
-    }
-    .swiper-pagination {
-      display: block;
     }
   }
   .business-slide {

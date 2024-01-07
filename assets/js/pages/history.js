@@ -18,10 +18,15 @@ function initSwiper() {
     slidesPerView: "auto",
     spaceBetween: 40,
     slideToClickedSlide: true,
+    loop: true,
+    navigation: {
+      nextEl: ".history-next",
+      prevEl: ".history-prev",
+    },
     breakpoints: {
       // when window width is >= 320px
       1024: {
-        spaceBetween: 100,
+        spaceBetween: 60,
       },
     },
   });
@@ -29,6 +34,7 @@ function initSwiper() {
     slidesPerView: "auto",
     spaceBetween: 20,
     centeredSlides: true,
+    loop: true,
     pagination: {
       el: ".history-pagination",
       type: "bullets",

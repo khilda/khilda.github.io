@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: center;
   background: url("./../images/bg_client.png") no-repeat 50% 50% / cover;
-  padding-bottom: 97px;
+  padding-top: 0;
   .sec-header {
     color: #fff;
   }
@@ -27,20 +27,42 @@
     justify-content: center;
     border-top: 1px solid #c1c1c1;
     border-bottom: 1px solid #c1c1c1;
+    --gap: 1px;
+    --line-offset: calc(var(--gap) / 2);
+    --line-thickness: 1px;
+    --line-color: #c1c1c1;
   }
   &-item {
+    position: relative;
     flex: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     justify-self: center;
     align-items: center;
-    // border-bottom: 1px solid #c1c1c1;
-    padding: 12px 7px;
+    padding: 16px 8px;
     text-align: center;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: var(--line-color);
+      z-index: 1;
+    }
+    &::before {
+      inline-size: var(--line-thickness);
+      block-size: 100%;
+      inset-inline-start: calc(var(--line-offset) * -1);
+    }
+    &::after {
+      inline-size: 100%;
+      block-size: var(--line-thickness);
+      inset-inline-start: 0;
+      inset-block-start: calc(var(--line-offset) * -1);
+    }
   }
   &-logo {
-    width: 150px;
+    width: 264px;
     height: auto;
     overflow: hidden;
     img {
@@ -89,8 +111,7 @@
     text-align: center;
   }
   .client-container {
-    max-height: calc(100vh - 540px);
-    min-height: 560px;
+    height: 801px;
   }
 }
 @include mobile {

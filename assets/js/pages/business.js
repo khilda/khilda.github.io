@@ -30,6 +30,7 @@ function initSwiper() {
     // slidesPerView: 1.25,
     centeredSlides: true,
     spaceBetween: 20,
+    loop: true,
     navigation: {
       nextEl: ".business-next",
       prevEl: ".business-prev",

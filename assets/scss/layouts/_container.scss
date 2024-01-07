@@ -16,14 +16,13 @@
   width: 100%;
   max-width: $l-container;
   margin: 0 auto;
-  padding: 0 20px;
 }
 .sec {
   &-header {
     width: 100%;
     max-width: $l-container;
-    padding: 0 20px;
     margin: 0 auto;
+    text-align: center;
   }
   &-title {
     font-size: 46px;

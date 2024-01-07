@@ -2,7 +2,7 @@
 # section - works
 ################################*/
 .works {
-  background: url("./../images/bg_works.png") no-repeat 50% 0% / 100% auto;
+  background: url("./../images/bg_works.png") no-repeat 50% 0% / auto 65vh;
   .filter-container {
     position: relative;
     display: flex;
@@ -102,6 +102,11 @@
   width: 100%;
   max-width: $l-container;
   margin: 0 auto;
+  padding-bottom: 120px;
+  .swiper-button {
+    top: auto;
+    bottom: 56px;
+  }
 }
 //************************************
 //# swiper item

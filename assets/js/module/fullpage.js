@@ -109,13 +109,7 @@ export class PageScroll {
       this._idx = null;
     }
 
-    if (this._curDom && this._scrollBefore) {
-      this._scrollBefore(this._curDom);
-    }
     this.scrollToSection();
-    if (this._curDom && this._scrollAfter) {
-      this._scrollAfter(this._curDom, this._idx);
-    }
 
     if (this.callback.length) {
       this.callback.forEach((cb) => {
@@ -126,6 +120,10 @@ export class PageScroll {
     }
   }
   scrollToSection(target) {
+    // before func
+    if (this._curDom && this._scrollBefore) {
+      this._scrollBefore(this._curDom);
+    }
     let scrollTo = 0;
     if (target) this._curDom = target;
     const isIncludeDom = Array.from(this._sections).find((node) =>
@@ -144,6 +142,10 @@ export class PageScroll {
       left: 0,
       behavior: "smooth",
     });
+    // after func
+    if (this._curDom && this._scrollAfter) {
+      this._scrollAfter(this._curDom, this._idx);
+    }
   }
   scrollBefore(fn) {
     this._scrollBefore = fn;
