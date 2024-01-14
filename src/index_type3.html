@@ -26,8 +26,8 @@
             </button>
             <button class="nav-btn" data-section="works">Works</button>
             <button class="nav-btn" data-section="client">Client</button>
-            <button class="nav-btn" data-section="about">About M.I.T</button>
             <button class="nav-btn" data-section="history">History</button>
+            <button class="nav-btn" data-section="about">About M.I.T</button>
           </nav>
         </div>
       </header>
@@ -51,8 +51,7 @@
               <h2 class="sec-title">Business Area</h2>
               <p class="sec-desc">
                 다양한 분야와 환경에서 발생한 이슈 대응 능력을 아래와 같이 검증
-                받았고, <br />
-                이를 통해 고객과의 신뢰를 꾸준하게 쌓아가고 있습니다.
+                받았고, 이를 통해 고객과의 신뢰를 꾸준하게 쌓아가고 있습니다.
               </p>
             </div>
             <div class="l-container">
@@ -135,7 +134,9 @@
           </div>
           <article class="swiper swiper-works">
             <div class="swiper-wrapper"></div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper-button prev work-prev"></div>
+            <div class="swiper-button next work-next"></div>
+            <div class="swiper-pagination work-pagination"></div>
           </article>
         </section>
         <section id="client" class="l-section client" data-page>
@@ -164,6 +165,62 @@
                 <div class="swiper-pagination client-pagination"></div>
               </article>
             </div>
+          </div>
+        </section>
+        <section id="history" class="l-section history" data-page>
+          <header class="sec-header">
+            <h2 class="sec-title">History</h2>
+            <p class="sec-desc">
+              SI 전문 업체로써 다양한 경험과 풍부한 IT 기술력을 바탕으로
+              <br class="br-mo" />수 많은 성공 사례를 보유하고 있으며,
+              <br class="br-pc" />초심을 잃지 않고 고객만족,
+              <br class="br-mo" />
+              최고의 서비스를 제공하기 위하여 언제나 최선을 다하고 있습니다.
+            </p>
+          </header>
+          <div class="history-nav-container">
+            <nav class="swiper history-nav">
+              <div class="swiper-wrapper">
+                <div
+                  class="swiper-slide h-nav is-active"
+                  data-year="tabHistory2023"
+                >
+                  2023
+                </div>
+                <div class="swiper-slide h-nav" data-year="tabHistory2022">
+                  2022
+                </div>
+                <div class="swiper-slide h-nav" data-year="tabHistory2021">
+                  2021
+                </div>
+                <div class="swiper-slide h-nav" data-year="tabHistory2020">
+                  2020
+                </div>
+                <div class="swiper-slide h-nav" data-year="tabHistory2019">
+                  2019
+                </div>
+                <div class="swiper-slide h-nav" data-year="tabHistory2018">
+                  2018
+                </div>
+                <div class="swiper-slide h-nav" data-year="tabHistory2017">
+                  2017
+                </div>
+                <div class="swiper-slide h-nav" data-year="tabHistory2016">
+                  2016
+                </div>
+                <div class="swiper-slide h-nav" data-year="tabHistory2015">
+                  2015
+                </div>
+              </div>
+            </nav>
+            <div class="swiper-button prev history-prev"></div>
+            <div class="swiper-button next history-next"></div>
+          </div>
+          <div class="history-container">
+            <article class="swiper swiper-history">
+              <div class="swiper-wrapper"></div>
+              <div class="swiper-pagination history-pagination"></div>
+            </article>
           </div>
         </section>
         <section id="about" class="l-section about" data-page>
@@ -215,58 +272,6 @@
                 </p>
               </address>
             </div>
-          </div>
-        </section>
-        <section id="history" class="l-section history" data-page>
-          <header class="sec-header">
-            <h2 class="sec-title">History</h2>
-            <p class="sec-desc">
-              SI 전문 업체로써 다양한 경험과 풍부한 IT 기술력을 바탕으로 수 많은
-              성공 사례를 보유하고 있으며, <br />초심을 잃지 않고 고객만족,
-              최고의 서비스를 제공하기 위하여 언제나 최선을 다하고 있습니다.
-            </p>
-          </header>
-          <div class="history-nav-container">
-            <nav class="swiper history-nav">
-              <div class="swiper-wrapper">
-                <div
-                  class="swiper-slide h-nav is-active"
-                  data-year="tabHistory2023"
-                >
-                  2023
-                </div>
-                <div class="swiper-slide h-nav" data-year="tabHistory2022">
-                  2022
-                </div>
-                <div class="swiper-slide h-nav" data-year="tabHistory2021">
-                  2021
-                </div>
-                <div class="swiper-slide h-nav" data-year="tabHistory2020">
-                  2020
-                </div>
-                <div class="swiper-slide h-nav" data-year="tabHistory2019">
-                  2019
-                </div>
-                <div class="swiper-slide h-nav" data-year="tabHistory2018">
-                  2018
-                </div>
-                <div class="swiper-slide h-nav" data-year="tabHistory2017">
-                  2017
-                </div>
-                <div class="swiper-slide h-nav" data-year="tabHistory2016">
-                  2016
-                </div>
-                <div class="swiper-slide h-nav" data-year="tabHistory2015">
-                  2015
-                </div>
-              </div>
-            </nav>
-          </div>
-          <div class="history-container">
-            <article class="swiper swiper-history">
-              <div class="swiper-wrapper"></div>
-              <div class="swiper-pagination history-pagination"></div>
-            </article>
           </div>
         </section>
       </div>

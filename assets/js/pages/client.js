@@ -45,9 +45,18 @@ function eventNav() {
   });
 }
 function appendClientList(key = "tabClient") {
-  const column = Math.floor(
-    document.querySelector(".swiper-client").clientWidth / 264
-  );
+  let column = 1;
+  // column 수 결정
+  if (window.innerWidth > 1024) {
+    // pc
+    column = Math.floor(
+      document.querySelector(".swiper-client").clientWidth / 264
+    );
+  } else {
+    // mobile
+    column = Math.floor(document.querySelector(".swiper-client").clientWidth / 153)
+  }
+  console.log(column)
   document.documentElement.style.setProperty("--client-item", column);
   const slideArr = chunk(tabContent[key], column * 3);
   let slideTemplate = "";

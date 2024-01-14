@@ -5,6 +5,7 @@ const _business = document.querySelector("#business");
 const _swiper = {
   nav: null,
   business: null,
+  group: {},
 };
 
 export function fnBusiness() {
@@ -27,10 +28,10 @@ function initSwiper() {
   });
   _swiper.business = new Swiper(".swiper-business", {
     slidesPerView: "auto",
-    // slidesPerView: 1.25,
     centeredSlides: true,
     spaceBetween: 20,
     loop: true,
+    loopAdditionalSlides: 1,
     navigation: {
       nextEl: ".business-next",
       prevEl: ".business-prev",
@@ -46,6 +47,12 @@ function initSwiper() {
       },
     },
   });
+  // swiper loop 시 index -1에서 시작하는 오류 임의 수정\
+
+  _swiper.business.slideTo(3, 300);
+  _swiper.business.on("slideChangeTransitionEnd", (swiper) => {
+    console.table(_swiper.group);
+  });
 }
 /**
  * 버튼 클릭시 slide update
@@ -57,18 +64,23 @@ function eventNav() {
       // add class
       navs.forEach((n) => n.classList.remove("is-active"));
       nav.classList.add("is-active");
-      appendBusinessList(nav.dataset.nav);
-      _swiper.business.updateSlides();
-      _swiper.business.slideTo(0, 300);
     });
   });
 }
 /**
  * swiper slide 동적생성
  */
-function appendBusinessList(key = "app") {
+function appendBusinessList() {
+  let swiperContent = "";
+  Object.keys(tabContent).forEach((key) => {
+    swiperContent += setTemplateItem(tabContent[key], key);
+    // nav key
+    _swiper.group[key] = tabContent[key].length;
+  });
+  Object.keys(_swiper.group).red
   _business.querySelector(`.swiper-business .swiper-wrapper`).innerHTML =
-    setTemplateItem(tabContent[key], key);
+    swiperContent;
+  
 }
 
 function setTemplateItem(arr, key) {

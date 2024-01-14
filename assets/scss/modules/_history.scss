@@ -70,11 +70,8 @@
 //# Swiper Content
 //************************************
 .history-container {
-  width: 1130px;
+  width: 100%;
   margin: min(7.7vh, 80px) auto;
-  .history-pagination {
-    display: none;
-  }
 }
 .history {
   &-list {
@@ -98,8 +95,13 @@
   }
 }
 //************************************
-//# Mobile
+//# responsive
 //************************************
+@include desktop {
+  .history-container {
+    width: 1130px;
+  }
+}
 @include mobile {
   .history {
     &::before {
@@ -125,9 +127,6 @@
   }
   .history-container {
     padding: 0;
-    .history-pagination {
-      display: block;
-    }
   }
   .history-nav {
     padding: 0;

@@ -91,7 +91,7 @@
   }
   .sec {
     &-header {
-      padding-top: 27px;
+      padding: 27px 20px 0;
     }
     &-title {
       font-size: 20px;
@@ -100,5 +100,9 @@
       margin-top: 15px;
       font-size: 12px;
     }
+  }
+  .btn-top{
+    right: 24px;
+    bottom: 47px;
   }
 }

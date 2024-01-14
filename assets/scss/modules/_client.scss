@@ -26,11 +26,6 @@
     grid-template-columns: repeat(var(--client-item), 1fr);
     justify-content: center;
     border-top: 1px solid #c1c1c1;
-    border-bottom: 1px solid #c1c1c1;
-    --gap: 1px;
-    --line-offset: calc(var(--gap) / 2);
-    --line-thickness: 1px;
-    --line-color: #c1c1c1;
   }
   &-item {
     position: relative;
@@ -40,26 +35,9 @@
     justify-content: center;
     justify-self: center;
     align-items: center;
+    border-bottom: 1px solid #c1c1c1;
     padding: 16px 8px;
     text-align: center;
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      background-color: var(--line-color);
-      z-index: 1;
-    }
-    &::before {
-      inline-size: var(--line-thickness);
-      block-size: 100%;
-      inset-inline-start: calc(var(--line-offset) * -1);
-    }
-    &::after {
-      inline-size: 100%;
-      block-size: var(--line-thickness);
-      inset-inline-start: 0;
-      inset-block-start: calc(var(--line-offset) * -1);
-    }
   }
   &-logo {
     width: 264px;
@@ -125,7 +103,7 @@
   .client {
     &-list {
       gap: 12px;
-      border: 0 none;
+      border-bottom: 1px solid #c1c1c1;
     }
     &-item {
       border: 0 none;

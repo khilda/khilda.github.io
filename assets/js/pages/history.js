@@ -62,7 +62,7 @@ function eventNav() {
 
       appendHistoryList(nav.dataset.year);
       _swiper.history.updateSlides();
-      _swiper.history.slideTo(0, 300);
+      // _swiper.history.slideTo(0, 300);
     });
   });
 }
