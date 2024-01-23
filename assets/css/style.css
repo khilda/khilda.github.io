@@ -930,12 +930,12 @@ textarea {
   height: 35px;
   padding: 3px 15px;
   font-size: 20px;
+  font-weight: 500;
   color: #fff;
   cursor: pointer;
 }
 .business-nav .b-nav.is-active {
   background-color: #2196f3;
-  font-weight: 700;
 }
 
 .swiper-business .swiper-wrapper {
