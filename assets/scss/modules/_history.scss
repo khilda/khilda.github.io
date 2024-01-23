@@ -80,12 +80,23 @@
     margin: 0 0;
   }
   &-item {
+    position: relative;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #9e9e9e;
     width: 100%;
     height: 63px;
+    padding-left: 20px;
     word-break: keep-all;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      display: block;
+      background: url("../images/ico_history_arrow.png") no-repeat 50% 50%;
+      width: 11px;
+      height: 14px;
+    }
     &:first-child {
       border-top: 1px solid #9e9e9e;
     }
