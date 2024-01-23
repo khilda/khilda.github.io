@@ -51,6 +51,29 @@ function initSwiper() {
     },
     addEventListener,
   });
+
+  // swiper시 nav active
+  _swiper.history.on("slideChangeTransitionEnd", (swiper) => {
+    const target = document.querySelector(
+      `.history-list[data-swiper-slide-index="${swiper.realIndex}"]`
+    );
+    activeNav(target.dataset.slide);
+  });
+}
+/**
+ * nav find active
+ */
+function activeNav(key) {
+  const navs = document.querySelectorAll(".h-nav");
+  let target = null;
+  navs.forEach((nav) => {
+    nav.classList.remove("is-active");
+    if (nav.dataset.nav === key) target = nav;
+  });
+  // swiper active
+  target?.classList.add("is-active");
+  const idx = Number(target.getAttribute("data-swiper-slide-index"));
+  _swiper.nav.slideTo(idx);
 }
 /**
  * 버튼 클릭시 slide update
@@ -60,35 +83,40 @@ function eventNav() {
   navs.forEach((nav) => {
     nav.addEventListener("click", (e) => {
       // add class
-      navs.forEach((n) => n.classList.remove("is-active"));
-      nav.classList.add("is-active");
-
-      appendHistoryList(nav.dataset.year);
-      _swiper.history.updateSlides();
-      // _swiper.history.slideTo(0, 300);
+      activeNav(nav.dataset.nav);
+      const targets = _swiper.history.slides
+        .filter((s) => s.dataset.slide === nav.dataset.nav)
+        .map((slides) =>
+          Number(slides.getAttribute("data-swiper-slide-index"))
+        );
+      const toIdx = Math.min(...targets);
+      _swiper.history.slideToLoop(toIdx);
     });
   });
 }
 
 function appendHistoryList(key = "tabHistory2023") {
-  const slideArr = chunk(tabContent[key], 5);
-  let slideTemplate = "";
-  for (let slide of slideArr) {
-    slideTemplate += `<ul class="swiper-slide history-list">
-    ${setTemplateItem(slide, key)}
-    </ul>`;
-  }
+  let swiperContent = "";
+  Object.keys(tabContent).forEach((key) => {
+    const slideArr = chunk(tabContent[key], 5);
+    slideArr.forEach((slide, idx) => {
+      swiperContent += `
+      <ul class="swiper-slide history-list" data-slide="${key}" data-group="group${idx}">
+        ${setTemplateItem(slide)}
+      </ul>`;
+    });
+  });
   _history.querySelector(`.swiper-history .swiper-wrapper`).innerHTML =
-    slideTemplate;
+    swiperContent;
 }
 
-function setTemplateItem(arr, year) {
+function setTemplateItem(arr) {
   const template = (desc) => {
-    return `<li class="history-item" data-year="${year}">${desc}</li>`;
+    return `<li class="history-item">${desc}</li>`;
   };
   let returnTemplate = "";
   arr.forEach((item) => {
-    returnTemplate += template(item, year);
+    returnTemplate += template(item);
   });
   return returnTemplate;
 }

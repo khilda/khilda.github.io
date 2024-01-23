@@ -11,6 +11,10 @@
     margin-bottom: min(5.984vh, 55px);
   }
   &-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     margin: min(7.29vh, 67px) auto 0;
     .b-nav {
       border-radius: 35px;
@@ -31,10 +35,6 @@
 ///************************************
 //# Swiper Layout
 //************************************
-.business-nav {
-  padding-bottom: 0;
-  overflow: visible;
-}
 .swiper-business {
   .swiper-wrapper {
     padding: 27px 0;

@@ -911,6 +911,16 @@ textarea {
   margin-bottom: min(5.984vh, 55px);
 }
 .business-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
   margin: min(7.29vh, 67px) auto 0;
 }
 .business-nav .b-nav {
@@ -926,11 +936,6 @@ textarea {
 .business-nav .b-nav.is-active {
   background-color: #2196f3;
   font-weight: 700;
-}
-
-.business-nav {
-  padding-bottom: 0;
-  overflow: visible;
 }
 
 .swiper-business .swiper-wrapper {
@@ -1691,6 +1696,7 @@ textarea {
 }
 
 .history-list {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1730,6 +1736,15 @@ textarea {
 }
 .history-item:first-child {
   border-top: 1px solid #9e9e9e;
+}
+.history .history-list[data-group=group0]::before {
+  display: block;
+  position: absolute;
+  left: -30px;
+  background-color: #eaeff7;
+  border-radius: 6px;
+  width: 6px;
+  height: 100%;
 }
 
 @media (min-width: 1024px) {

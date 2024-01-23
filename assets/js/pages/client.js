@@ -59,7 +59,6 @@ function appendClientList(key = "tabClient") {
       document.querySelector(".swiper-client").clientWidth / 153
     );
   }
-  console.log(column);
   document.documentElement.style.setProperty("--client-item", column);
   const slideArr = chunk(tabContent[key], column * 3);
   let slideTemplate = "";

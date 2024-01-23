@@ -72,6 +72,7 @@
 }
 .history {
   &-list {
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -100,6 +101,17 @@
     &:first-child {
       border-top: 1px solid #9e9e9e;
     }
+  }
+  // 임의 divider
+  .history-list[data-group="group0"]::before {
+    // content: "";
+    display: block;
+    position: absolute;
+    left: -30px;
+    background-color: #eaeff7;
+    border-radius: 6px;
+    width: 6px;
+    height: 100%;
   }
 }
 //************************************

@@ -3,7 +3,6 @@ import tabContent from "../data/business.js";
 
 const _business = document.querySelector("#business");
 const _swiper = {
-  nav: null,
   business: null,
   group: {},
 };
@@ -16,22 +15,11 @@ export function fnBusiness() {
 }
 
 function initSwiper() {
-  _swiper.nav = new Swiper(".business-nav", {
-    slidesPerView: "auto",
-    spaceBetween: 10,
-    slideToClickedSlide: true,
-    breakpoints: {
-      1440: {
-        spaceBetween: 20,
-      },
-    },
-  });
   _swiper.business = new Swiper(".swiper-business", {
     slidesPerView: "auto",
     centeredSlides: true,
     spaceBetween: 20,
     loop: true,
-    loopAdditionalSlides: 1,
     pagination: {
       el: ".business-pagination",
       type: "bullets",
@@ -46,10 +34,25 @@ function initSwiper() {
   });
   // swiper loop 시 index -1에서 시작하는 오류 임의 수정\
 
-  _swiper.business.slideTo(3, 300);
+  _swiper.business.slideTo(2, 300);
   _swiper.business.on("slideChangeTransitionEnd", (swiper) => {
-    console.table(_swiper.group);
+    const target = document.querySelector(
+      `.business-slide[data-swiper-slide-index="${swiper.realIndex}"]`
+    );
+    activeNav(target.dataset.slide);
   });
+}
+/**
+ * nav find active
+ */
+function activeNav(key) {
+  const navs = document.querySelectorAll(".b-nav");
+  let target = null;
+  navs.forEach((nav) => {
+    nav.classList.remove("is-active");
+    if (nav.dataset.nav === key) target = nav;
+  });
+  target?.classList.add("is-active");
 }
 /**
  * 버튼 클릭시 slide update
@@ -58,9 +61,15 @@ function eventNav() {
   const navs = document.querySelectorAll(".b-nav");
   navs.forEach((nav) => {
     nav.addEventListener("click", (e) => {
-      // add class
-      navs.forEach((n) => n.classList.remove("is-active"));
-      nav.classList.add("is-active");
+      // find slide
+      activeNav(nav.dataset.nav);
+      const targets = _swiper.business.slides
+        .filter((s) => s.dataset.slide === nav.dataset.nav)
+        .map((slides) =>
+          Number(slides.getAttribute("data-swiper-slide-index"))
+        );
+      const toIdx = Math.min(...targets);
+      _swiper.business.slideToLoop(toIdx);
     });
   });
 }
@@ -81,7 +90,7 @@ function appendBusinessList() {
 
 function setTemplateItem(arr, key) {
   const template = ({ title, desc, icon, img }) => {
-    return `<div class="swiper-slide business-slide" data-category="${key}">
+    return `<div class="swiper-slide business-slide" data-slide="${key}">
     <header class="b-content">
       <h5 class="b-title">${title}</h5>
       <p class="b-desc">${desc}</p>
