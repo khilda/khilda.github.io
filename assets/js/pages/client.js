@@ -25,6 +25,7 @@ function initSwiper() {
     pagination: {
       el: ".client-pagination",
       type: "bullets",
+      clickable: true,
     },
   });
 }
@@ -54,14 +55,16 @@ function appendClientList(key = "tabClient") {
     );
   } else {
     // mobile
-    column = Math.floor(document.querySelector(".swiper-client").clientWidth / 153)
+    column = Math.floor(
+      document.querySelector(".swiper-client").clientWidth / 153
+    );
   }
-  console.log(column)
+  console.log(column);
   document.documentElement.style.setProperty("--client-item", column);
   const slideArr = chunk(tabContent[key], column * 3);
   let slideTemplate = "";
   for (let slide of slideArr) {
-    slideTemplate += `<ul class="swiper-slide client-list"> 
+    slideTemplate += `<ul class="swiper-slide client-list">
     ${setTemplateItem(slide, key)}
     </ul>`;
   }

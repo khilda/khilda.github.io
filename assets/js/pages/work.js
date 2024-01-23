@@ -10,13 +10,10 @@ export function fnWoks() {
     spaceBetween: 27,
     centeredSlides: true,
     loop: true,
-    navigation: {
-      nextEl: ".work-next",
-      prevEl: ".work-prev",
-    },
     pagination: {
       el: ".work-pagination",
       type: "bullets",
+      clickable: true,
     },
     breakpoints: {
       // when window width is >= 320px

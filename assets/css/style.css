@@ -954,13 +954,17 @@ textarea {
   overflow: hidden;
   -webkit-box-shadow: 16px 16px 12px -9px rgba(0, 0, 0, 0.12);
           box-shadow: 16px 16px 12px -9px rgba(0, 0, 0, 0.12);
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
 }
 .business-slide.swiper-slide-active {
   border-color: #2196f3;
+  opacity: 1;
 }
 .business-slide:not(.swiper-slide-active) {
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
+  opacity: 0.3;
 }
 .business-slide .b-content {
   -webkit-box-flex: 1;
@@ -1325,18 +1329,7 @@ textarea {
 }
 
 .client {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   background: url("./../images/bg_client.png") no-repeat 50% 50%/cover;
-  padding-top: 0;
 }
 .client .sec-header {
   color: #fff;
@@ -1354,7 +1347,6 @@ textarea {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-top: 1px solid #c1c1c1;
 }
 .client-item {
   position: relative;
@@ -1375,12 +1367,11 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 1px solid #c1c1c1;
   padding: 16px 8px;
   text-align: center;
 }
 .client-logo {
-  width: 264px;
+  width: 140px;
   height: auto;
   overflow: hidden;
 }
@@ -1432,7 +1423,7 @@ textarea {
     text-align: center;
   }
   .client-container {
-    height: 801px;
+    height: 600px;
   }
 }
 @media (max-width: 1023px) {
@@ -1469,19 +1460,6 @@ textarea {
 /* ##############################
 # section - about
 ################################*/
-.about.l-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-top: 0;
-}
 .about.l-section .sec-title {
   text-align: center;
 }
@@ -1653,16 +1631,6 @@ textarea {
 # section - history
 ################################*/
 .history {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(3.15%, rgba(21, 95, 234, 0.1)), color-stop(29.24%, rgba(249, 250, 254, 0.1)), color-stop(42.59%, rgba(194, 213, 249, 0)), to(rgba(21, 95, 234, 0.1)));
   background: linear-gradient(180deg, rgba(21, 95, 234, 0.1) 3.15%, rgba(249, 250, 254, 0.1) 29.24%, rgba(194, 213, 249, 0) 42.59%, rgba(21, 95, 234, 0.1) 100%);
 }

@@ -53,11 +53,14 @@
   height: 380px;
   overflow: hidden;
   box-shadow: 16px 16px 12px -9px rgba(0, 0, 0, 0.12);
+  transition: opacity 0.3s;
   &.swiper-slide-active {
     border-color: $c-primary;
+    opacity: 1;
   }
   &:not(.swiper-slide-active) {
     filter: grayscale(100%);
+    opacity: 0.3;
   }
   .b {
     &-content {

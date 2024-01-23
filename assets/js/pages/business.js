@@ -32,13 +32,10 @@ function initSwiper() {
     spaceBetween: 20,
     loop: true,
     loopAdditionalSlides: 1,
-    navigation: {
-      nextEl: ".business-next",
-      prevEl: ".business-prev",
-    },
     pagination: {
       el: ".business-pagination",
       type: "bullets",
+      clickable: true,
     },
     breakpoints: {
       // when window width is >= 320px
@@ -77,10 +74,9 @@ function appendBusinessList() {
     // nav key
     _swiper.group[key] = tabContent[key].length;
   });
-  Object.keys(_swiper.group).red
+  Object.keys(_swiper.group).red;
   _business.querySelector(`.swiper-business .swiper-wrapper`).innerHTML =
     swiperContent;
-  
 }
 
 function setTemplateItem(arr, key) {

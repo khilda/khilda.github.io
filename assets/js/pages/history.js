@@ -30,6 +30,7 @@ function initSwiper() {
       },
     },
   });
+  document.querySelector;
   _swiper.history = new Swiper(".swiper-history", {
     slidesPerView: "auto",
     spaceBetween: 20,
@@ -38,6 +39,7 @@ function initSwiper() {
     pagination: {
       el: ".history-pagination",
       type: "bullets",
+      clickable: true,
     },
     breakpoints: {
       // when window width is >= 320px
@@ -47,6 +49,7 @@ function initSwiper() {
         centeredSlides: false,
       },
     },
+    addEventListener,
   });
 }
 /**
@@ -71,7 +74,7 @@ function appendHistoryList(key = "tabHistory2023") {
   const slideArr = chunk(tabContent[key], 5);
   let slideTemplate = "";
   for (let slide of slideArr) {
-    slideTemplate += `<ul class="swiper-slide history-list"> 
+    slideTemplate += `<ul class="swiper-slide history-list">
     ${setTemplateItem(slide, key)}
     </ul>`;
   }

@@ -5,11 +5,7 @@
   --client-item: 6;
 }
 .client {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background: url("./../images/bg_client.png") no-repeat 50% 50% / cover;
-  padding-top: 0;
   .sec-header {
     color: #fff;
   }
@@ -25,7 +21,6 @@
     display: grid;
     grid-template-columns: repeat(var(--client-item), 1fr);
     justify-content: center;
-    border-top: 1px solid #c1c1c1;
   }
   &-item {
     position: relative;
@@ -35,12 +30,11 @@
     justify-content: center;
     justify-self: center;
     align-items: center;
-    border-bottom: 1px solid #c1c1c1;
     padding: 16px 8px;
     text-align: center;
   }
   &-logo {
-    width: 264px;
+    width: 140px;
     height: auto;
     overflow: hidden;
     img {
@@ -89,7 +83,7 @@
     text-align: center;
   }
   .client-container {
-    height: 801px;
+    height: 600px;
   }
 }
 @include mobile {
