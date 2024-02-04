@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light" />
     <title>MADE IN TRUE</title>
     <link
       rel="stylesheet"
@@ -55,19 +57,27 @@
               </p>
             </div>
             <div class="l-container">
-              <nav class="business-nav">
-                <div class="b-nav is-active" data-nav="app">
-                  Native app (AOS / iOS)
+              <nav class="swiper business-nav">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide b-nav is-active" data-nav="app">
+                    Native app (AOS / iOS)
+                  </div>
+                  <div class="swiper-slide b-nav" data-nav="infra">
+                    Infrastructure
+                  </div>
+                  <div class="swiper-slide b-nav" data-nav="db">DataBase</div>
+                  <div class="swiper-slide b-nav" data-nav="ai">AI</div>
+                  <div class="swiper-slide b-nav" data-nav="sso">SSO</div>
+                  <div class="swiper-slide b-nav" data-nav="blockchain">
+                    Blockchain (private)
+                  </div>
+                  <div class="swiper-slide b-nav" data-nav="credit">
+                    신용 정보
+                  </div>
+                  <div class="swiper-slide b-nav" data-nav="sap">
+                    계정계 (SAP)
+                  </div>
                 </div>
-                <div class="b-nav" data-nav="infra">Infrastructure</div>
-                <div class="b-nav" data-nav="db">DataBase</div>
-                <div class="b-nav" data-nav="ai">AI</div>
-                <div class="b-nav" data-nav="sso">SSO</div>
-                <div class="b-nav" data-nav="blockchain">
-                  Blockchain (private)
-                </div>
-                <div class="b-nav" data-nav="credit">신용 정보</div>
-                <div class="b-nav" data-nav="sap">계정계 (SAP)</div>
               </nav>
             </div>
           </header>

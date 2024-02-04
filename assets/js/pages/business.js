@@ -3,6 +3,7 @@ import tabContent from "../data/business.js";
 
 const _business = document.querySelector("#business");
 const _swiper = {
+  nav: null,
   business: null,
   group: {},
 };
@@ -15,6 +16,17 @@ export function fnBusiness() {
 }
 
 function initSwiper() {
+  _swiper.nav = new Swiper(".business-nav", {
+    slidesPerView: "auto",
+    spaceBetween: 10,
+    slideToClickedSlide: true,
+    breakpoints: {
+      1440: {
+        spaceBetween: 20,
+      },
+    },
+  });
+
   _swiper.business = new Swiper(".swiper-business", {
     slidesPerView: "auto",
     centeredSlides: true,
@@ -48,9 +60,12 @@ function initSwiper() {
 function activeNav(key) {
   const navs = document.querySelectorAll(".b-nav");
   let target = null;
-  navs.forEach((nav) => {
+  navs.forEach((nav, idx) => {
     nav.classList.remove("is-active");
-    if (nav.dataset.nav === key) target = nav;
+    if (nav.dataset.nav === key) {
+      target = nav;
+      _swiper.nav.slideTo(idx);
+    }
   });
   target?.classList.add("is-active");
 }
