@@ -187,6 +187,10 @@ meter {
   font-weight: 700;
   font-style: normal;
 }
+:root {
+  color-scheme: light only;
+}
+
 html,
 body {
   font-family: "NotoSansKR", "Malgun Gothic";
